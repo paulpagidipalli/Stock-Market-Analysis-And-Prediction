@@ -1,0 +1,4 @@
+# Perform Dickey-Fuller test to check stationarity
+result = adfuller(data['Close'].dropna())
+print(f'ADF Statistic: {result[0]}')
+print(f'p-value: {result[1]}')
