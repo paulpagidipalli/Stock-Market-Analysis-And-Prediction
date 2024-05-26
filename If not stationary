@@ -1,0 +1,9 @@
+# If the series is not stationary, take the difference
+if result[1] > 0.05:
+    data_diff = data['Close'].diff().dropna()
+    result_diff = adfuller(data_diff)
+    print(f'ADF Statistic (Differenced): {result_diff[0]}')
+    print(f'p-value (Differenced): {result_diff[1]}')
+    data_to_use = data_diff
+else:
+    data_to_use = data['Close']
