@@ -1,0 +1,17 @@
+# Fit ARIMA model
+model = ARIMA(data_to_use, order=(5, 1, 0))  # Order (p,d,q)
+model_fit = model.fit()
+print(model_fit.summary())
+
+# Forecasting
+forecast_steps = 30  # Number of days to forecast
+forecast_obj = model_fit.get_forecast(steps=forecast_steps)
+forecast = forecast_obj.predicted_mean
+conf_int = forecast_obj.conf_int()
+
+# Create a date range for the forecast
+last_date = data.index[-1]
+forecast_dates = pd.date_range(start=last_date + pd.Timedelta(days=1), periods=forecast_steps)
+
+
+
