@@ -1,9 +1,0 @@
-# Plot the differenced data if applicable
-if 'data_diff' in locals():
-    plt.figure(figsize=(14, 7))
-    plt.plot(data_diff, label='Differenced Close Price')
-    plt.title('Differenced Stock Prices Over Time')
-    plt.xlabel('Date')
-    plt.ylabel('Price Difference')
-    plt.legend()
-    plt.show()
